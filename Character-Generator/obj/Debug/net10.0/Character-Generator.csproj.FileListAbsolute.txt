@@ -1,0 +1,15 @@
+/Users/truls/Documents/repo/OOP-assignment/Character-Generator/bin/Debug/net10.0/Character-Generator
+/Users/truls/Documents/repo/OOP-assignment/Character-Generator/bin/Debug/net10.0/Character-Generator.deps.json
+/Users/truls/Documents/repo/OOP-assignment/Character-Generator/bin/Debug/net10.0/Character-Generator.runtimeconfig.json
+/Users/truls/Documents/repo/OOP-assignment/Character-Generator/bin/Debug/net10.0/Character-Generator.dll
+/Users/truls/Documents/repo/OOP-assignment/Character-Generator/bin/Debug/net10.0/Character-Generator.pdb
+/Users/truls/Documents/repo/OOP-assignment/Character-Generator/obj/Debug/net10.0/Character-Generator.GeneratedMSBuildEditorConfig.editorconfig
+/Users/truls/Documents/repo/OOP-assignment/Character-Generator/obj/Debug/net10.0/Character-Generator.AssemblyInfoInputs.cache
+/Users/truls/Documents/repo/OOP-assignment/Character-Generator/obj/Debug/net10.0/Character-Generator.AssemblyInfo.cs
+/Users/truls/Documents/repo/OOP-assignment/Character-Generator/obj/Debug/net10.0/Character-Generator.csproj.CoreCompileInputs.cache
+/Users/truls/Documents/repo/OOP-assignment/Character-Generator/obj/Debug/net10.0/Character-Generator.sourcelink.json
+/Users/truls/Documents/repo/OOP-assignment/Character-Generator/obj/Debug/net10.0/Character-Generator.dll
+/Users/truls/Documents/repo/OOP-assignment/Character-Generator/obj/Debug/net10.0/refint/Character-Generator.dll
+/Users/truls/Documents/repo/OOP-assignment/Character-Generator/obj/Debug/net10.0/Character-Generator.pdb
+/Users/truls/Documents/repo/OOP-assignment/Character-Generator/obj/Debug/net10.0/Character-Generator.genruntimeconfig.cache
+/Users/truls/Documents/repo/OOP-assignment/Character-Generator/obj/Debug/net10.0/ref/Character-Generator.dll
