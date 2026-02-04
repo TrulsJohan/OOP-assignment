@@ -66,5 +66,13 @@ namespace Character_Generator
             Console.WriteLine($"  CHA: {Charisma,2}");
             Console.WriteLine($"  Average: {Average:F1}");
         }
+
+        public int GetHighestScore() => GetSorted()[0].Value;
+
+        public int GetSecondHighestScore()
+        {
+            var sorted = GetSorted();
+            return sorted[1].Value;
+        }
     }
 }
