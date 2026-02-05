@@ -7,6 +7,7 @@ namespace Character_Generator
         public AbilityScores Abilities { get; }
         public CharacterClass Class { get; private set; }
         public string Name { get; set; }
+        public int HitPoints { get; set; }
 
         public Character(AbilityScores abilities)
         {
@@ -37,7 +38,7 @@ namespace Character_Generator
                 "INT" => Abilities.Intelligence,
                 "WIS" => Abilities.Wisdom,
                 "DEX" => Abilities.Dexterity,
-                _ => 9 // fallback to neutral
+                _ => 9
             };
             return GetModifier(score);
         }
