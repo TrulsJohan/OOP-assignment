@@ -6,73 +6,114 @@ namespace Character_Generator
 {
     public class AbilityScores
     {
-        public int Strength     { get; private set; }
-        public int Intelligence { get; private set; }
-        public int Wisdom       { get; private set; }
-        public int Dexterity    { get; private set; }
-        public int Constitution { get; private set; }
-        public int Charisma     { get; private set; }
+        private const int MIN_SCORE = 3;
+        private const int MAX_SCORE = 18;
 
-        public double Average => 
-            (Strength + Intelligence + Wisdom + Dexterity + Constitution + Charisma) / 6.0;
+        private readonly int[] _scores = new int[6];
 
-        public AbilityScores()
+        public int Strength     => _scores[0];
+        public int Intelligence => _scores[1];
+        public int Wisdom       => _scores[2];
+        public int Dexterity    => _scores[3];
+        public int Constitution => _scores[4];
+        public int Charisma     => _scores[5];
+
+        public double Average => _scores.Average();
+
+        private static readonly Random _rng = new Random();
+
+        private AbilityScores() { }
+
+        public static AbilityScores GenerateWithRerollOption()
         {
-            RollAll();
+            AbilityScores abilities;
+
+            do
+            {
+                abilities = new AbilityScores();
+                abilities.RollAll();
+
+                abilities.Print();
+
+                if (abilities.Average > 8.0)
+                    break;
+
+                Console.WriteLine("\nYour ability scores are below average.");
+                if (!AskYesNo("Would you like to reroll? (Y/N)"))
+                    break;
+
+                Console.WriteLine("Rerolling...\n");
+
+            } while (true);
+
+            return abilities;
         }
-        
-        public bool RollAll()
+
+        private void RollAll()
         {
-            Strength     = Roll3d6();
-            Intelligence = Roll3d6();
-            Wisdom       = Roll3d6();
-            Dexterity    = Roll3d6();
-            Constitution = Roll3d6();
-            Charisma     = Roll3d6();
-
-            return true;
+            for (int i = 0; i < 6; i++)
+            {
+                _scores[i] = Roll3d6();
+            }
         }
-
-        private static readonly Random _rnd = new Random();
 
         private static int Roll3d6()
         {
-            return _rnd.Next(1, 7) + _rnd.Next(1, 7) + _rnd.Next(1, 7);
+            return _rng.Next(1, 7) + _rng.Next(1, 7) + _rng.Next(1, 7);
         }
 
-        public List<(string Label, int Value)> GetSorted()
+        public int GetModifier(int score)
         {
-            return new List<(string Label, int Value)>
+            return score switch
             {
-                ("STR", Strength),
-                ("INT", Intelligence),
-                ("WIS", Wisdom),
-                ("DEX", Dexterity),
-                ("CON", Constitution),
-                ("CHA", Charisma)
-            }
-            .OrderByDescending(x => x.Value)
-            .ToList();
+                <= 3  => -3,
+                <= 5  => -2,
+                <= 8  => -1,
+                <= 12 =>  0,
+                <= 15 => +1,
+                <= 17 => +2,
+                _     => +3
+            };
+        }
+        
+        public (int Value, string Abbr)[] GetSortedDescending()
+        {
+            var list = new[]
+            {
+                (Value: Strength,     Abbr: "STR"),
+                (Value: Intelligence, Abbr: "INT"),
+                (Value: Wisdom,       Abbr: "WIS"),
+                (Value: Dexterity,    Abbr: "DEX"),
+                (Value: Constitution, Abbr: "CON"),
+                (Value: Charisma,     Abbr: "CHA")
+            };
+
+            return list
+                .OrderByDescending(x => x.Value)
+                .ToArray();
         }
 
-        public void PrintToConsole()
+        public void Print()
         {
             Console.WriteLine("\nRolled ability scores:");
-            Console.WriteLine($"  STR: {Strength,2}");
-            Console.WriteLine($"  INT: {Intelligence,2}");
-            Console.WriteLine($"  WIS: {Wisdom,2}");
-            Console.WriteLine($"  DEX: {Dexterity,2}");
-            Console.WriteLine($"  CON: {Constitution,2}");
-            Console.WriteLine($"  CHA: {Charisma,2}");
+            Console.WriteLine($"  STR {Strength,2}   INT {Intelligence,2}");
+            Console.WriteLine($"  WIS {Wisdom,2}   DEX {Dexterity,2}");
+            Console.WriteLine($"  CON {Constitution,2}   CHA {Charisma,2}");
             Console.WriteLine($"  Average: {Average:F1}");
         }
 
-        public int GetHighestScore() => GetSorted()[0].Value;
-
-        public int GetSecondHighestScore()
+        private static bool AskYesNo(string prompt)
         {
-            var sorted = GetSorted();
-            return sorted[1].Value;
+            while (true)
+            {
+                Console.Write(prompt + " ");
+                string input = Console.ReadLine()?.Trim().ToUpperInvariant();
+
+                if (input == "Y" || input == "YES") return true;
+                if (input == "N" || input == "NO")  return false;
+
+                Console.WriteLine("Please enter Y or N.");
+            }
         }
     }
 }
