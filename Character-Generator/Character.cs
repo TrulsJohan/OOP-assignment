@@ -89,7 +89,7 @@ namespace Character_Generator
             Console.WriteLine($"║ Class              {SelectedClass.Name,-34} ║");
             Console.WriteLine($"║ Prime Requisite    {SelectedClass.PrimeRequisiteAbbr,-3}   ({SelectedClass.GetPrimeRequisiteModifier(Abilities),+2}) ║");
             Console.WriteLine($"║ Hit Points         {HitPoints,-34} ║");
-            Console.WriteLine($"║ XP to level 2      {SelectedClass.XPToLevel2} ║");
+            Console.WriteLine($"║ XP to level 2      {SelectedClass.XPToLevel2}         ║");
             Console.WriteLine("╚════════════════════════════════════════════════════════╝");
         }
 
