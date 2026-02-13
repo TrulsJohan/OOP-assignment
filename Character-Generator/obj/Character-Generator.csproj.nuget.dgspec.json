@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/truls/Documents/repo/OOP-assignment/OOP-assignment/OOP-assignment.csproj": {}
+    "/Users/truls/Documents/repo/OOP-assignment/Character-Generator/Character-Generator.csproj": {}
   },
   "projects": {
-    "/Users/truls/Documents/repo/OOP-assignment/OOP-assignment/OOP-assignment.csproj": {
+    "/Users/truls/Documents/repo/OOP-assignment/Character-Generator/Character-Generator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/truls/Documents/repo/OOP-assignment/OOP-assignment/OOP-assignment.csproj",
-        "projectName": "OOP-assignment",
-        "projectPath": "/Users/truls/Documents/repo/OOP-assignment/OOP-assignment/OOP-assignment.csproj",
+        "projectUniqueName": "/Users/truls/Documents/repo/OOP-assignment/Character-Generator/Character-Generator.csproj",
+        "projectName": "Character-Generator",
+        "projectPath": "/Users/truls/Documents/repo/OOP-assignment/Character-Generator/Character-Generator.csproj",
         "packagesPath": "/Users/truls/.nuget/packages/",
-        "outputPath": "/Users/truls/Documents/repo/OOP-assignment/OOP-assignment/obj/",
+        "outputPath": "/Users/truls/Documents/repo/OOP-assignment/Character-Generator/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/truls/.nuget/NuGet/NuGet.Config"
